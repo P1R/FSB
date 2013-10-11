@@ -12,7 +12,7 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
+
     email: p1r0@insomnia247.nl
 */
 
@@ -31,7 +31,7 @@ FILE *fp = NULL;
 	for(i = 0;i < 10000; i++){
 		end = clock();
 		//srand(time(NULL)); daba mismos numeros por alta velocidad de micro implemente la sig solucion
-		srand(end-start); 
+		srand(end-start);
 		r = rand() % 100;
 		A[i] = r;
 		if(fwrite(A, sizeof(int),10000, fp) != 10000)
@@ -40,7 +40,7 @@ FILE *fp = NULL;
 	fclose(fp);
 
 /*leer valores*/
-		if((fp=fopen("prueba", "rb"))==NULL) 
+		if((fp=fopen("prueba", "rb"))==NULL)
 			printf("No se puede abrir fichero\n");
 	for(i = 0; i < 10000; i++){
 		if(fread(B, sizeof(int), 10000, fp) != 10000) {
@@ -58,4 +58,5 @@ FILE *fp = NULL;
 
 	end = clock(); //asignamos a end valor de fin de reloj
 	printf("\ntiempo del proceso: %f seg\n", (double)(end-start)/ CLOCKS_PER_SEC);//tiempo dado en segundos
+    getchar();
 }
