@@ -26,6 +26,7 @@ int i, j, r, A[10000], B[10000];
 clock_t start, end;
 FILE *fp = NULL;
 	start = clock(); //asignamos a start valor inicio de reloj
+//generamos numeros aleatorios y guardamos en el archivo prueba
 	if((fp=fopen("prueba", "wb"))==NULL)
 		printf("No se puede abrir fichero\n");
 	for(i = 0;i < 10000; i++){
@@ -39,7 +40,7 @@ FILE *fp = NULL;
 	}
 	fclose(fp);
 
-/*leer valores*/
+//leer valores del archivo prueba y los guarda en un arreglo B
 		if((fp=fopen("prueba", "rb"))==NULL)
 			printf("No se puede abrir fichero\n");
 	for(i = 0; i < 10000; i++){
@@ -51,12 +52,12 @@ FILE *fp = NULL;
 		}
 	}
 	fclose(fp);
-
-        for(i = 0;i < 10000; i++){
-		printf("%d",A[i]-B[i]);
+        //Descomenta la siguiente seccion si quieres ver lo leido en el arreglo B
+/*      for(i = 0;i < 10000; i++){
+		printf("%d",B[i]);
         }
-
+        */
 	end = clock(); //asignamos a end valor de fin de reloj
 	printf("\ntiempo del proceso: %f seg\n", (double)(end-start)/ CLOCKS_PER_SEC);//tiempo dado en segundos
-    getchar();
+    getchar();// agregado para sistemas winbugs
 }
